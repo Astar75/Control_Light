@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/Theme.УправлениеСветом.DefaultScreen.Dialog"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/toolbar_title"
+        layout="@layout/toolbar_title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/toolbar_height" />
+
+    <View
+        android:id="@+id/preview_color"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_margin="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="24dp"
+        app:layout_constraintBottom_toTopOf="@+id/container_red_channel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar_title" />
+
+    <TextView
+        android:id="@+id/tv_color_preview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="#FFFFFF"
+        android:textSize="32sp"
+        app:layout_constraintBottom_toBottomOf="@id/preview_color"
+        app:layout_constraintEnd_toEndOf="@id/preview_color"
+        app:layout_constraintStart_toStartOf="@id/preview_color"
+        app:layout_constraintTop_toTopOf="@id/preview_color" />
+
+    <LinearLayout
+        android:id="@+id/container_red_channel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="24dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/container_green_channel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/preview_color">
+
+        <TextView
+            android:id="@+id/tv_red_label"
+            android:layout_width="10dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="R:"
+            android:textColor="#D50000"
+            android:textSize="18sp" />
+
+        <SeekBar
+            android:id="@+id/sb_red_channel"
+            style="@style/SeekBarLightness"
+            android:layout_marginBottom="0dp"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_weight="9"
+            android:max="255"
+            android:progress="40" />
+
+        <TextView
+            android:id="@+id/tv_red_progress"
+            android:layout_width="20dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="0"
+            android:textColor="#D50000"
+            android:textSize="18sp"
+            tools:text="255" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/container_green_channel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="24dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/container_blue_channel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/container_red_channel">
+
+        <TextView
+            android:id="@+id/tv_green_label"
+            android:layout_width="10dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="G:"
+            android:textColor="#00C853"
+            android:textSize="18sp" />
+
+        <SeekBar
+            android:id="@+id/sb_green_channel"
+            android:layout_width="0dp"
+            style="@style/SeekBarLightness"
+            android:layout_marginBottom="0dp"
+            android:layout_height="30dp"
+            android:layout_weight="9"
+            android:max="255" />
+
+        <TextView
+            android:id="@+id/tv_green_progress"
+            android:layout_width="20dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="0"
+            android:textColor="#64DD17"
+            android:textSize="18sp"
+            tools:text="255" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/container_blue_channel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="24dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/container_action_buttons"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/container_green_channel">
+
+        <TextView
+            android:id="@+id/tv_blue_label"
+            android:layout_width="10dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="B:"
+            android:textColor="#304FFE"
+            android:textSize="18sp" />
+
+        <SeekBar
+            android:id="@+id/sb_blue_channel"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_marginBottom="0dp"
+            android:layout_weight="9"
+            style="@style/SeekBarLightness"
+            android:max="255" />
+
+        <TextView
+            android:id="@+id/tv_blue_progress"
+            android:layout_width="20dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="0"
+            android:textColor="#304FFE"
+            android:textSize="18sp"
+            tools:text="255" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/container_action_buttons"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/toolbar_height"
+        android:layout_marginTop="24dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/container_blue_channel">
+
+        <Button
+            android:id="@+id/btn_ok"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#3E3E3E"
+            android:text="OK"
+            app:backgroundTint="#3E3E3E" />
+
+        <Button
+            android:id="@+id/btn_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#3E3E3E"
+            android:text="Cancel"
+            app:backgroundTint="#3E3E3E" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

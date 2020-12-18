@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Управление светом</string>
+    <!-- TODO: Remove or change this placeholder text -->
+
+    <string name="hello">Hello</string>
+    <string name="bye">Bye</string>
+    <string name="battery_level">Battery Level</string>
+    <string name="saber_power">Saber Power</string>
+    <string name="devices">Devices</string>
+    <string name="tint_positive">+50</string>
+    <string name="tint_negative">-50</string>
+</resources>

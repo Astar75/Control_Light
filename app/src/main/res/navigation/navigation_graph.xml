@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_graph"
+    app:startDestination="@id/colorFragment">
+
+    <fragment
+        android:id="@+id/colorFragment"
+        android:name="com.astar.osterrig.ui.color_control.ColorFragment"
+        android:label="fragment_color"
+        tools:layout="@layout/fragment_color" />
+    <fragment
+        android:id="@+id/functionsFragment"
+        android:name="com.astar.osterrig.ui.functions_control.FunctionsFragment"
+        android:label="fragment_functions"
+        tools:layout="@layout/fragment_functions" />
+    <fragment
+        android:id="@+id/cctColorFragment"
+        android:name="com.astar.osterrig.ui.cct_color.CctColorFragment"
+        android:label="fragment_cct_color" />
+    <action
+        android:id="@+id/action_global_functionsFragment"
+        app:destination="@id/functionsFragment"
+        app:launchSingleTop="true"
+        app:popUpTo="@id/colorFragment" />
+    <action
+        android:id="@+id/action_global_cctColorFragment"
+        app:destination="@id/cctColorFragment"
+        app:launchSingleTop="true"
+        app:popUpTo="@id/colorFragment" />
+    <action
+        android:id="@+id/action_global_colorFragment"
+        app:destination="@id/colorFragment" />
+</navigation>

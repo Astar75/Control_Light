@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="adapter"
+            type="com.astar.osterrig.ui.cct_color.CctColorAdapter" />
+
+        <variable
+            name="vm"
+            type="com.astar.osterrig.ui.cct_color.CctColorViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        style="@style/Theme.УправлениеСветом.DefaultScreen"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.functions_control.CctColorFragment">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_cct_colors"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_margin="@dimen/default_margin"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toTopOf="@+id/tv_lightness"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:setAdapter="@{adapter}" />
+
+        <TextView
+            android:id="@+id/tv_lightness"
+            style="@style/BigText"
+            android:layout_marginBottom="@dimen/vertical_margin"
+            android:text='@{String.format("Lightness: %d%%", vm.percentLightness)}'
+            app:layout_constraintBottom_toTopOf="@+id/sb_lightness"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="Lightness: 100" />
+
+        <SeekBar
+            android:id="@+id/sb_lightness"
+            app:layout_constraintBottom_toTopOf="@+id/tv_tint_color"
+            android:layout_marginBottom="@dimen/vertical_margin"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            style="@style/SeekBarLightness" />
+
+        <TextView
+            android:id="@+id/tv_tint_negative"
+            style="@style/BigText"
+            android:layout_marginStart="@dimen/horizontal_margin"
+            android:text="@string/tint_negative"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_tint_color"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_tint_color" />
+
+        <TextView
+            android:id="@+id/tv_tint_color"
+            style="@style/BigText"
+            android:layout_width="100dp"
+            android:gravity="center_horizontal"
+            android:layout_marginBottom="@dimen/vertical_margin"
+            android:text='@{String.format("Tint: %02d", vm.tintPreview)}'
+            app:layout_constraintBottom_toTopOf="@+id/sb_tint_color"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_tint_positive"
+            style="@style/BigText"
+            android:layout_marginEnd="@dimen/horizontal_margin"
+            android:text="@string/tint_positive"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_tint_color"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_tint_color" />
+
+        <SeekBar
+            android:id="@+id/sb_tint_color"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginBottom="@dimen/vertical_margin"
+            android:layout_marginStart="@dimen/horizontal_margin"
+            android:layout_marginEnd="@dimen/horizontal_margin"
+            android:max="100"
+            android:progress="@{vm.tintValue}"
+            android:splitTrack="false"
+            android:progressDrawable="@drawable/drawable_tint_seekbar"
+            android:thumb="@drawable/drawable_thumb_seekbar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
